@@ -1,0 +1,13 @@
+userNum = int(input("Enter number to test for prime: "))
+prime = True
+for i in range(2,int(userNum/2)):
+	if userNum % i == 0:
+		prime = False
+		break
+if prime == True:
+	print("it's prime")
+else:
+	print("it's composite") 
+	
+	
+	

@@ -1,0 +1,12 @@
+#!/bin/sh
+person=$(whoami)
+echo "$(date) : $person" >> useHistory.txt
+echo "hello $person, how are you?"
+echo
+read -p "Would you like to see who has ran this program? [y/n]: " response
+if [ $response = 'y' ]
+then
+	cat useHistory.txt
+fi
+echo
+echo goodbye
