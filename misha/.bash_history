@@ -167,3 +167,20 @@ mesg
 whoami
 w
 exit
+passwd
+exit
+sudo whoami
+exit
+sudo su
+exit
+clear
+sudo su
+exit
+clear
+sudo su
+df
+lsblk
+blkid
+lsblk
+sudo su
+exit
