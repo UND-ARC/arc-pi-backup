@@ -17,7 +17,7 @@ for folder in $(ls -d */) ; do
 
 	echo Adding user $folder
 
-	useradd -M -d /home/$folder $folder
+	useradd -M -d /home/$folder $folder -s /bin/bash
 	echo -e "$folder\n$folder" | passwd $folder
 	chown -R $folder:$folder /home/$folder
 done
