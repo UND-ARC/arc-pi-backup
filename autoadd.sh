@@ -1,10 +1,24 @@
 #!/bin/bash
 
 echo User auto-add UND-ARC
-echo Adding user $1
 
-useradd -M -d /home/$1 $1
-echo -e "$1\n$1" | passwd $1
-chown -R $1:$1 /home/$1
+declare -A skip=(
+	[pi]=1 [sshtest]=2 [debian]=3
+)
 
+for folder in $(ls -d */) ; do
+	folder=${folder%?}
+
+	if [ -n "${skip[$folder]}" ]
+	then
+		echo Skipping $folder
+		continue
+	fi
+
+	echo Adding user $folder
+
+	useradd -M -d /home/$folder $folder
+	echo -e "$folder\n$folder" | passwd $folder
+	chown -R $folder:$folder /home/$folder
+done
 echo Done!
